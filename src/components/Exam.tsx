@@ -33,7 +33,7 @@ export const Exam: React.FC = () => {
         handleCheatingAttempt();
       }
     };
-
+  
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setRiskLevel('high');
@@ -41,8 +41,24 @@ export const Exam: React.FC = () => {
         setCheatingDetected(true);
         handleCheatingAttempt();
       }
+      // Disable Ctrl+Shift+I (Dev Tools)
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') {
+        e.preventDefault();
+        setRiskLevel('high');
+        setShowWarning(true);
+        setCheatingDetected(true);
+        handleCheatingAttempt();
+      }
+      // Disable Ctrl+P (Print)
+      if (e.ctrlKey && e.key.toLowerCase() === 'p') {
+        e.preventDefault();
+        setRiskLevel('high');
+        setShowWarning(true);
+        setCheatingDetected(true);
+        handleCheatingAttempt();
+      }
     };
-
+  
     const handleFullscreenChange = () => {
       if (!screenfull.isFullscreen) {
         setShowFullscreenPrompt(true);
@@ -51,7 +67,7 @@ export const Exam: React.FC = () => {
         handleCheatingAttempt();
       }
     };
-
+  
     const handleRightClick = (event: MouseEvent) => {
       event.preventDefault();
       setRiskLevel('high');
@@ -59,9 +75,9 @@ export const Exam: React.FC = () => {
       setCheatingDetected(true);
       handleCheatingAttempt();
     };
-
+  
     const handleCopy = (event: ClipboardEvent) => event.preventDefault();
-
+  
     // NEW: Handle when the window loses focus (browser goes out-of-focus)
     const handleWindowBlur = () => {
       setRiskLevel('high');
@@ -69,7 +85,6 @@ export const Exam: React.FC = () => {
       setCheatingDetected(true);
       handleCheatingAttempt();
     };
-
     // Disable right-click, copy and add focus/blur events
     document.addEventListener('contextmenu', handleRightClick);
     document.addEventListener('copy', handleCopy);
