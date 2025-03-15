@@ -1,0 +1,39 @@
+|-- .gitignore
+|-- eslint.config.js
+|-- index.html
+|-- package-lock.json
+|-- package.json
+|-- postcss.config.js
+|-- public
+    |-- assets
+        |-- gifs
+            |-- angry.gif
+            |-- annoyed.gif
+            |-- BeCareful.gif
+            |-- smiling.gif
+            |-- thinking.gif
+        |-- gifs.zip
+    |-- vite.svg
+|-- README.md
+|-- src
+    |-- App.css
+    |-- App.tsx
+    |-- components
+        |-- Avatar.tsx
+        |-- Exam.tsx
+        |-- Login.tsx
+        |-- Result.tsx
+        |-- Rules.tsx
+    |-- data
+        |-- mockData.ts
+    |-- index.css
+    |-- main.tsx
+    |-- store
+        |-- examStore.ts
+    |-- types.ts
+    |-- vite-env.d.ts
+|-- tailwind.config.js
+|-- tsconfig.app.json
+|-- tsconfig.json
+|-- tsconfig.node.json
+|-- vite.config.ts

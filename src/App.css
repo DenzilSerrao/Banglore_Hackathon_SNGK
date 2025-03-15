@@ -1,0 +1,84 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Risk Glow Feature */
+.low {
+  border: 2px solid green; /* Low Risk - Safe */
+  box-shadow: 0 0 15px 2px green;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.medium {
+  border: 2px solid yellow; /* Medium Risk - Warning */
+  box-shadow: 0 0 15px 2px yellow;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.high {
+  border: 2px solid red; /* High Risk - Danger */
+  box-shadow: 0 0 15px 2px red;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Make sure the Avatar component is visible */
+.avatar-container {
+  z-index: 100;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Ensure the Avatar component displays properly */
+.fixed {
+  position: fixed;
+}
+
+.bottom-4 {
+  bottom: 1rem;
+}
+
+.right-4 {
+  right: 1rem;
+}
