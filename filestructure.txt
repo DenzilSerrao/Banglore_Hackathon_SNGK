@@ -1,39 +1,82 @@
-|-- .gitignore
-|-- eslint.config.js
-|-- index.html
-|-- package-lock.json
-|-- package.json
-|-- postcss.config.js
-|-- public
-    |-- assets
-        |-- gifs
-            |-- angry.gif
-            |-- annoyed.gif
-            |-- BeCareful.gif
-            |-- smiling.gif
-            |-- thinking.gif
-        |-- gifs.zip
-    |-- vite.svg
-|-- README.md
-|-- src
-    |-- App.css
-    |-- App.tsx
-    |-- components
-        |-- Avatar.tsx
-        |-- Exam.tsx
-        |-- Login.tsx
-        |-- Result.tsx
-        |-- Rules.tsx
-    |-- data
-        |-- mockData.ts
-    |-- index.css
-    |-- main.tsx
-    |-- store
-        |-- examStore.ts
-    |-- types.ts
-    |-- vite-env.d.ts
-|-- tailwind.config.js
-|-- tsconfig.app.json
-|-- tsconfig.json
-|-- tsconfig.node.json
-|-- vite.config.ts
+|-- client
+    |-- .gitignore
+    |-- .vite
+        |-- deps
+            |-- package.json
+            |-- _metadata.json
+    |-- eslint.config.js
+    |-- index.html
+    |-- package-lock.json
+    |-- package.json
+    |-- postcss.config.js
+    |-- public
+        |-- assets
+            |-- gifs
+                |-- angry.gif
+                |-- annoyed.gif
+                |-- BeCareful.gif
+                |-- smiling.gif
+                |-- thinking.gif
+            |-- gifs.zip
+        |-- vite.svg
+    |-- README.md
+    |-- src
+        |-- App.css
+        |-- App.tsx
+        |-- components
+            |-- Avatar.tsx
+            |-- Exam.tsx
+            |-- Login.tsx
+            |-- Result.tsx
+            |-- Rules.tsx
+        |-- data
+            |-- mockData.ts
+        |-- index.css
+        |-- main.tsx
+        |-- store
+            |-- examStore.ts
+        |-- types.ts
+        |-- vite-env.d.ts
+    |-- tailwind.config.js
+    |-- tsconfig.app.json
+    |-- tsconfig.json
+    |-- tsconfig.node.json
+    |-- vite.config.ts
+|-- server
+    |-- .env
+    |-- api
+        |-- auth
+            |-- login.js
+            |-- register.js
+    |-- lib
+        |-- db.js
+    |-- middleware
+        |-- auth.js
+    |-- package-lock.json
+    |-- package.json
+    |-- README.md
+    |-- src
+        |-- config
+            |-- database.js
+        |-- controllers
+            |-- adminController.js
+            |-- auth.controller.js
+            |-- auth.js
+        |-- middleware
+            |-- auth.js
+        |-- models
+            |-- user.js
+        |-- routes
+            |-- auth.js
+        |-- services
+            |-- auth.service.js
+        |-- types
+            |-- index.ts
+        |-- utils
+            |-- asyncHandler.js
+            |-- constants.js
+            |-- errors.js
+            |-- logger.js
+    |-- tsconfig.json
+    |-- vercel.json
+|-- server.js
