@@ -1,0 +1,27 @@
+service: exam-backend
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: us-east-1
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+functions:
+  login:
+    handler: api/auth/login.handler
+    events:
+      - http:
+          path: api/auth/login
+          method: post
+          cors: true
+  register:
+    handler: api/auth/register.handler
+    events:
+      - http:
+          path: api/auth/register
+          method: post
+          cors: true
