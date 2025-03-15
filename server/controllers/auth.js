@@ -1,7 +1,7 @@
-import { User } from '../models/user.js';
+import { User } from '../src/models/user.js';
 import jwt from 'jsonwebtoken';
-import { ValidationError, AuthenticationError } from '../utils/errors.js';
-import { asyncHandler } from '../utils/asyncHandler.js';
+import { ValidationError, AuthenticationError } from '../src/utils/errors.js';
+import { asyncHandler } from '../src/utils/asyncHandler.js';
 
 export const register = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;

@@ -14,7 +14,8 @@ export const Login: React.FC = () => {
     setError('');
     try {
       const data = await login(email, password);
-      // Optionally store the received token or user data.
+      console.log('Login successful:', data);
+      // Optionally store data.token and user data.
       if (isAdmin) {
         navigate('/admin');
       } else {
@@ -28,7 +29,7 @@ export const Login: React.FC = () => {
 
   const toggleAdminMode = () => {
     setIsAdmin(!isAdmin);
-    // Clear form fields when switching modes
+    // Clear form fields when switching modes 
     setEmail('');
     setPassword('');
   };
@@ -50,8 +51,8 @@ export const Login: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
               placeholder={isAdmin ? 'Enter faculty email' : 'Enter student email'}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
             />
           </div>
           <div>
@@ -63,8 +64,8 @@ export const Login: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
               placeholder="Enter password"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
             />
           </div>
           <div className="flex flex-col space-y-4">
@@ -72,7 +73,7 @@ export const Login: React.FC = () => {
               type="button"
               onClick={toggleAdminMode}
               className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium ${
-                isAdmin
+                isAdmin 
                   ? 'bg-red-600 text-white hover:bg-red-700'
                   : 'bg-blue-600 text-white hover:bg-blue-700'
               }`}

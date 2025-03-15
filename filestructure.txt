@@ -45,6 +45,7 @@
     |-- tsconfig.app.json
     |-- tsconfig.json
     |-- tsconfig.node.json
+    |-- vercel.json
     |-- vite.config.ts
 |-- server
     |-- .env
@@ -54,12 +55,25 @@
         |-- README.txt
     |-- api
         |-- auth
+            |-- login
+                |-- index.js
             |-- login.js
+            |-- register
+                |-- index.js
             |-- register.js
+            |-- verify
+                |-- index.js
+    |-- controllers
+        |-- adminController.js
+        |-- auth.controller.js
+        |-- auth.js
     |-- lib
         |-- db.js
     |-- middleware
         |-- auth.js
+        |-- corsMiddleware.js
+        |-- isAdminAuth.js
+        |-- userAuth.js
     |-- package-lock.json
     |-- package.json
     |-- README.md
@@ -67,10 +81,6 @@
     |-- src
         |-- config
             |-- database.js
-        |-- controllers
-            |-- adminController.js
-            |-- auth.controller.js
-            |-- auth.js
         |-- middleware
             |-- auth.js
         |-- models
