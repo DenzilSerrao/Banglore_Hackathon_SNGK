@@ -32,6 +32,10 @@
         |-- data
             |-- mockData.ts
         |-- index.css
+        |-- lib
+            |-- api.ts
+            |-- axios.ts
+            |-- validation.ts
         |-- main.tsx
         |-- store
             |-- examStore.ts
@@ -45,6 +49,9 @@
 |-- server
     |-- .env
     |-- .gitignore
+    |-- .vercel
+        |-- project.json
+        |-- README.txt
     |-- api
         |-- auth
             |-- login.js
@@ -78,4 +85,5 @@
             |-- errors.js
             |-- logger.js
     |-- tsconfig.json
+    |-- undefined
     |-- vercel.json

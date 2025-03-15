@@ -1,26 +1,35 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { login } from '../lib/api';
 
 export const Login: React.FC = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState(''); // renamed from username for clarity
   const [password, setPassword] = useState('');
   const [isAdmin, setIsAdmin] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, you would validate credentials here
-    if (isAdmin) {
-      navigate('/admin');
-    } else {
-      navigate('/rules');
+    setError('');
+    try {
+      const data = await login(email, password);
+      // Optionally store the received token or user data.
+      if (isAdmin) {
+        navigate('/admin');
+      } else {
+        navigate('/rules');
+      }
+    } catch (err: any) {
+      setError(err.response?.data?.error || 'Login failed.');
+      console.error(err);
     }
   };
 
   const toggleAdminMode = () => {
     setIsAdmin(!isAdmin);
     // Clear form fields when switching modes
-    setUsername('');
+    setEmail('');
     setPassword('');
   };
 
@@ -30,18 +39,19 @@ export const Login: React.FC = () => {
         <h2 className="text-3xl font-bold text-center">
           {isAdmin ? 'Faculty Login' : 'Student Login'}
         </h2>
+        {error && <p className="text-red-600 text-center">{error}</p>}
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              {isAdmin ? 'Faculty Name' : 'Student Name'}
+              {isAdmin ? 'Faculty Email' : 'Student Email'}
             </label>
             <input
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
-              placeholder={isAdmin ? 'Enter faculty name' : 'Enter student name'}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+              placeholder={isAdmin ? 'Enter faculty email' : 'Enter student email'}
             />
           </div>
           <div>
@@ -52,8 +62,8 @@ export const Login: React.FC = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
               required
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
               placeholder="Enter password"
             />
           </div>
@@ -62,14 +72,13 @@ export const Login: React.FC = () => {
               type="button"
               onClick={toggleAdminMode}
               className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium ${
-                isAdmin 
-                  ? 'bg-red-600 text-white hover:bg-red-700' 
+                isAdmin
+                  ? 'bg-red-600 text-white hover:bg-red-700'
                   : 'bg-blue-600 text-white hover:bg-blue-700'
               }`}
             >
               {isAdmin ? 'Switch to Student Mode' : 'Switch to Faculty Mode'}
             </button>
-            
             <button
               type="submit"
               className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"

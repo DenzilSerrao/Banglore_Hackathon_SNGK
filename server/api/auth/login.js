@@ -1,10 +1,10 @@
 import cors from 'cors';
 import { connectDB } from '../../lib/db.js';
 import { User } from '../../src/models/user.js';
-import jwt from 'jsonwebtoken.js';
+import jwt from 'jsonwebtoken';
 
 const corsOptions = {
-  origin: 'https://beauty-shop-frontend-l8yf.vercel.app',  // Your frontend URL
+  origin: 'http://localhost:3000',  // Your frontend URL
   methods: ['POST'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
